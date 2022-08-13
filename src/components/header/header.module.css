@@ -50,6 +50,13 @@ body {
     font-size: larger;
 }
 
+@media (max-width: 360px) {
+    .header_contacts {
+        font-size: 12px;
+    }
+}
+
+
 .header_contacts a {
     text-decoration: none;
     cursor: pointer;

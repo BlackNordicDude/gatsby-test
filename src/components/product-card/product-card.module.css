@@ -4,11 +4,20 @@
     box-sizing: border-box;
     padding: 15px;
     gap: 70px;
+
 }
 
-@media (max-width: 1140px) {
+@media (max-width: 1023px) {
     .card {
         flex-direction: column-reverse;
         gap: 10px;
+        align-items: center;
+        padding: 3px;
     }
+}
+
+@media (max-width: 1400px) {
+    .card {
+        gap: 35px;
+    }    
 }

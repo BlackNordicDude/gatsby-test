@@ -35,6 +35,12 @@
     padding-left: 20px;
 }
 
+@media (max-width: 360px) {
+    .footer_info {
+        font-size: small;
+    }
+}
+
 .footer_info_call {
     display: flex;
     flex-direction: column;

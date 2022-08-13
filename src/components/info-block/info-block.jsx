@@ -10,10 +10,11 @@ const InfoBlock = () => {
         <Carousel
           infiniteLoop={true}
           emulateTouch={true}
-          autoPlay={true}
+          autoPlay={false}
           interval={7000}
           showStatus={false}
           showThumbs={false}
+          showArrows={false}
         >
           <InfoCard />
           <InfoCard />
