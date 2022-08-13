@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    background: #FDF0E9;
+}
+
+.header {
+    height: 130px;
+    z-index: 1000;
+    top: -130px;
+    transition: top 1s;
+    width: 100%;
+    display: flex;
+    justify-content: center;    
+    background: url('../../images/desks.jpg');
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.555);
+}
+
+.header.fixed ~ div {
+    margin-top: 130px;
+}
+
+.fixed {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 70px;
+}
+
+.header_wrapper {
+    width: 1140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_right {
+    display: flex;
+    gap: 10px;
+}
+
+.header_contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: larger;
+}
+
+.header_contacts a {
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    color: #000000a9;
+}
+.header_contacts a:hover {
+    color: #000000;
+}
+
+.header_basket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+

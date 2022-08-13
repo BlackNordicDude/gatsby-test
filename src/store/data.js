@@ -1,0 +1,83 @@
+export const data = [
+    {   
+        tab: 'pallet',
+        type: 'typical',
+        title: 'Типовой',
+        size: ['1200x1000'],
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'first',
+    },
+    {
+        tab: 'pallet',
+        type: 'typical',
+        title: 'Типовой',
+        size: ['1200x1000'],
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'second',
+    },
+    {
+        tab: 'pallet',
+        type: 'euro',
+        title: 'Евро',
+        size: ['1200x1000'],
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'first', 
+    },
+    {
+        tab: 'pallet',
+        type: 'euro',
+        title: 'Евро',
+        size: ['1200x1000'],
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'second',
+    },
+    {
+        tab: 'pallet',
+        type: 'light',
+        title: 'Облегченный',
+        size: ['1200x1000'],
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'first',
+    },
+    {
+        tab: 'pallet',
+        type: 'finn',
+        title: 'Финский',
+        size: ['1200x1000'],
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'first',
+    },
+    {
+        tab: 'pallet',
+        type: 'finn',
+        title: 'Финский',
+        size: ['1200x1000'],
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'second',
+    },
+    {
+        tab: 'flooring',
+        title: 'Деревянный настил',
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'first',
+    },
+    {
+        tab: 'cap',
+        title: 'Паллетная крышка',
+        size: ['1200x1000', '1200x800'],
+        humidity: 'естественная',
+        material: 'хвойная древесина',
+        grade: 'first',
+    }
+]
+    
+
+    

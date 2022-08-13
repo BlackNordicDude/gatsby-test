@@ -1,0 +1,14 @@
+.card {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 15px;
+    gap: 70px;
+}
+
+@media (max-width: 1140px) {
+    .card {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+}

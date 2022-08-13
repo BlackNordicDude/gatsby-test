@@ -1,0 +1,66 @@
+.footer {
+    margin-top: 50px;
+    width: 100%;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    background: url('../../images/desks.jpg');
+    box-shadow: 0 -2px 9px #00000080;
+}
+
+.footer_wrapper {
+    margin: 0 auto;
+    width: 1140px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 1140px) {
+    .footer {
+        margin-top: 20px;
+    }
+
+    .footer_wrapper {
+        width: 100%;
+    }
+    
+}
+
+.footer_info {
+    text-decoration: none;
+    display: flex;
+    gap: 30px;
+    padding-left: 20px;
+}
+
+.footer_info_call {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer_info_call a {
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    color: #000000a9;
+}
+
+.footer_info_call a:hover {
+    color: #000000;
+}
+
+.footer_logo img {
+    height: 80px;
+}
+
+.footer_develop {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fc670471;
+    text-align: right;
+    line-height: 23px;
+    font-size: 12px;
+}
