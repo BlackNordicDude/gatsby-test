@@ -19,7 +19,7 @@ const BasketCard = ({item}) => {
                 <div className={style.card_descr}>
                     <div>Тип: <span>{type === 'new' ? 'Новая' : 'Б/У'}</span></div>
                     <div>Сорт: <span>{grade === 'first' ? 'Первый' : 'Второй'}</span></div>
-                    <div>Количество: <span>{count}</span></div>
+                    <div>Количество: <span>{count+'шт'}</span></div>
                     <div>Размер: <span>{size}</span></div>
                 </div>
             </div>

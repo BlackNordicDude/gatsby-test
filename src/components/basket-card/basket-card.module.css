@@ -1,6 +1,7 @@
 .card {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 60px;
     background: #ffffff;
     border-radius: 30px;
@@ -26,9 +27,41 @@
     }
 
 .card_img_wrapper {
-    padding: 8px 5px 0 5px;
+    display: flex;
+    align-items: center;
 }
 
 .card_img_wrapper img {
     cursor: pointer;
+}
+
+@media (max-width: 545px) {
+    .card {
+        gap: 20px;
+        padding: 10px 15px;
+    }
+
+    .card_title {
+        font-size: medium;
+    }
+
+    .card_descr {
+        gap: 10px;
+        font-size: small;
+    }
+
+    .card_img_wrapper img {
+        height: 28px;
+    }
+}
+
+@media (max-width: 375px) {
+    .card {
+        padding: 10px;
+    }
+
+    .card_descr {
+        margin-top: 3px;
+        font-size: x-small;
+    }
 }

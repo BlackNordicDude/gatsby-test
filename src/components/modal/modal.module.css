@@ -12,6 +12,12 @@
     padding: 20px;
 }
 
+@media (max-width: 768px) {
+    .modal {
+        width: 80%;
+    }
+}
+
 .modal_overlay {
     width: 100vw;
     height: 115vh;
@@ -32,6 +38,18 @@
     width: 60%;
     margin: 0 auto;
     margin-bottom: 30px;
+}
+
+@media (max-width: 425px) {
+    .modal_title {
+        width: 80%;
+    }
+}
+
+@media (max-width: 375px) {
+    .modal_title {
+        width: 90%;
+    }
 }
 
 .modal_form {
