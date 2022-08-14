@@ -30,10 +30,11 @@ const Pallet = () => {
 
     const {title, humidity, size, material, type} = currentCard;
 
-    const increase = () => setToOrder({...toOrder, count: toOrder.count + 1})
-    const decrease = () => {
-        if (toOrder.count > 0) setToOrder({...toOrder, count: toOrder.count - 1})
-    }   
+    const handleChange = (e) => {
+        const {value} = e.target;
+        setToOrder({...toOrder, count: value})
+        console.log(toOrder);
+    }
 
     const images = useStaticQuery(graphql`
     query {
@@ -107,9 +108,14 @@ const Pallet = () => {
                     </div>
                 </div>
                 <div className={style.value}>
-                    <button className={style.value_btn} onClick={decrease}>-</button>
-                    <p>{toOrder.count}</p>
-                    <button className={style.value_btn} onClick={increase}>+</button>
+                    <p>Количество:</p>
+                    <input 
+                    type="text" 
+                    className={style.value_input} 
+                    value={toOrder.count} 
+                    onChange={handleChange}
+                    name='count'
+                    />
                 </div>
                 {
                     toOrder.count === 0 ? (

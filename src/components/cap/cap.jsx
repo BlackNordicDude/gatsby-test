@@ -23,9 +23,9 @@ const Cap = () => {
     })
     const {title, humidity, size, material} = currentCard;
 
-    const increase = () => setToOrder({...toOrder, count: toOrder.count + 1})
-    const decrease = () => {
-        if (toOrder.count > 0) setToOrder({...toOrder, count: toOrder.count - 1})
+    const handleChange = (e) => {
+        const {value} = e.target;
+        setToOrder({...toOrder, count: value})
     }
 
     const images = useStaticQuery(graphql`
@@ -45,8 +45,8 @@ const Cap = () => {
     const imgData = images.allFile.edges[0].node
     const img = getImage(imgData);
     const addProductToOrder = () => {
-        setToOrder({...toOrder, id: uuidv4()})
-        dispatch(addToOrder(toOrder))
+        const newItem = {...toOrder, id: uuidv4()}
+        dispatch(addToOrder(newItem))
     }
     return (
         <>
@@ -91,9 +91,14 @@ const Cap = () => {
                     </div>
                 </div>
                 <div className={style.value}>
-                    <button className={style.value_btn} onClick={decrease}>-</button>
-                    <p>{toOrder.count}</p>
-                    <button className={style.value_btn} onClick={increase}>+</button>
+                    <p>Количество:</p>
+                    <input 
+                    type="text" 
+                    className={style.value_input} 
+                    value={toOrder.count} 
+                    onChange={handleChange}
+                    name='count'
+                    />
                 </div>
                 {
                     toOrder.count === 0 ? (

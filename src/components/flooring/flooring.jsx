@@ -8,7 +8,6 @@ import { addToOrder } from '../../store/reducer';
 import Boop from '../boop/boop';
 import { v4 as uuidv4 } from 'uuid';    
 
-
 const Flooring = () => {
     const currentTab = useSelector(state => state.product.currentTab)
     const dispatch = useDispatch();
@@ -17,15 +16,26 @@ const Flooring = () => {
         title: currentCard.title,
         count: 0,
         type: 'new',
-        size: 'Под заказ',
+        size: '',
+        height: 0,
+        width: 0,
         grade: 'first',
         id: null
     })
     const {title, humidity, material} = currentCard;
 
-    const increase = () => setToOrder({...toOrder, count: toOrder.count + 1})
-    const decrease = () => {
-        if (toOrder.count > 0) setToOrder({...toOrder, count: toOrder.count - 1})
+    const handleChangeCount = (e) => {
+        const {value} = e.target;
+        setToOrder({...toOrder, count: value})
+    }
+
+    const handleChangeHeight = (e) => {
+        const {value} = e.target;
+            setToOrder({...toOrder, height: value})
+    }
+    const handleChangeWidth = (e) => {
+        const {value} = e.target;
+            setToOrder({...toOrder, width: value})
     }
 
     const images = useStaticQuery(graphql`
@@ -46,11 +56,11 @@ const Flooring = () => {
     const img = getImage(imgData);
 
     const addProductToOrder = () => {
-        console.log(toOrder);
-        setToOrder({...toOrder, id: uuidv4()})
-        console.log(toOrder);
-        dispatch(addToOrder(toOrder))
+        let newItem = {...toOrder, id: uuidv4(),}
+        newItem = {...newItem, size: `${toOrder.height}x${toOrder.width}`}
+        dispatch(addToOrder(newItem))
     }
+
     return (
         <>
             <div className={style.card_left}>
@@ -58,7 +68,34 @@ const Flooring = () => {
                     <h3 className={style.card_title}>{title}</h3>
                     <p>Материал: {material}</p>
                     <p>Влажность: {humidity}</p>
-                    <p>Размеры под заказ</p>
+                    <div className={style.size}>
+                        <p>Размер:</p>
+                        <div className={style.size_inputs}>
+                            <div className={style.size_inputs_item}>
+                                
+                                <input 
+                                className={style.size_input} 
+                                type="text" 
+                                placeholder='Высота, мм'
+                                value={toOrder.size[0]}
+                                name='height'
+                                onChange={handleChangeHeight}
+                                />
+                            </div>
+                            x
+                            <div className={style.size_inputs_item}>
+                                <input 
+                                className={style.size_input} 
+                                type="text" 
+                                placeholder='Ширина, мм'
+                                value={toOrder.size[1]}
+                                name='width'
+                                onChange={handleChangeWidth}
+                                />
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className={style.modif}>
                     <div className={style.modif_grade}>
@@ -79,9 +116,14 @@ const Flooring = () => {
                     </div>
                 </div>
                 <div className={style.value}>
-                    <button className={style.value_btn} onClick={decrease}>-</button>
-                    <p>{toOrder.count}</p>
-                    <button className={style.value_btn} onClick={increase}>+</button>
+                    <p>Количество:</p>
+                    <input 
+                    type="text" 
+                    className={style.value_input} 
+                    value={toOrder.count} 
+                    onChange={handleChangeCount}
+                    name='count'
+                    />
                 </div>
                 {
                     toOrder.count === 0 ? (
