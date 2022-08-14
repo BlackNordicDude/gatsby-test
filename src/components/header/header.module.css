@@ -61,6 +61,10 @@ body {
     }
 }
 
+.header_logo {
+    margin-top: -20px;
+}
+
 .header_right {
     display: flex;
     gap: 10px;

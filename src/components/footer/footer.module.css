@@ -58,8 +58,13 @@
     color: #000000;
 }
 
+.footer_logo {
+    margin-right: 20px;
+    height: 100%;
+}
+
 .footer_logo img {
-    height: 80px;
+    height: 100%;
 }
 
 .footer_develop {
