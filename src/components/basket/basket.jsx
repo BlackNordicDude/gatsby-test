@@ -36,7 +36,7 @@ const Basket = () => {
                                 {order.map((item,i) => <BasketCard item={item} key={i}/>)}
                             </div>
                         ) : (
-                            <div className={style.basket_main_empty}>
+                            <div>
                                 Тут пока пусто :с
                             </div>
                         )

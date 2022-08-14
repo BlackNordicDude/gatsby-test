@@ -40,7 +40,7 @@ const Header = () => {
                 height: headerParam.heightLogo
             }
         }
-    ,[headerParam.prevOffset])
+    ,[headerParam.heightLogo, headerParam.isMinV])
 
     React.useEffect(() => {
         document.addEventListener('scroll', handleScroll)
