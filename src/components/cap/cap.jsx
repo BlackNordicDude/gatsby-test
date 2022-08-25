@@ -17,10 +17,19 @@ const Cap = () => {
         title: currentCard.title,
         count: '',
         type: 'new',
-        size: currentCard.size[0],
+        sizeR: currentCard.size[0],
+        size: '',
         grade: 'first',
+        width: 0,
+        height: 0,
         id: null
     })
+
+    const [checkbox, setCheckbox] = React.useState(false);
+    const handlerCheckBox = () => {
+        setCheckbox(!checkbox);
+    }
+
     const {title, humidity, size, material} = currentCard;
 
     const handleChange = (e) => {
@@ -45,8 +54,19 @@ const Cap = () => {
     const imgData = images.allFile.edges[0].node
     const img = getImage(imgData);
 
+    const handleChangeHeight = (e) => {
+        const {value} = e.target;
+            setToOrder({...toOrder, height: value})
+    }
+    const handleChangeWidth = (e) => {
+        const {value} = e.target;
+            setToOrder({...toOrder, width: value})
+    }
+
+
     const addProductToOrder = () => {
-        const newItem = {...toOrder, id: uuidv4()}
+        let newItem = {...toOrder, id: uuidv4()}
+        newItem = checkbox ? {...newItem, size: `${toOrder.height}x${toOrder.width}`} : {...newItem, size: toOrder.sizeR}
         dispatch(addToOrder(newItem))
     }
     const onSubmit = (e) => {
@@ -61,14 +81,57 @@ const Cap = () => {
                     <p>Материал: {material}</p>
                     <p>Влажность: {humidity}</p>
                     <div className={style.size}>
-                        {size.map((el, i) =>
-                            <button
-                                className={toOrder.size === el ? style.size_btn_active : style.size_btn}
-                                onClick={() => setToOrder({ ...toOrder, size: size[i] })}
-                                key={i}
-                            >
-                                {size[i]}
-                            </button>)}
+                        {checkbox ? (
+                                <div className={style.size_inputs}>
+                                    <div className={style.size_inputs_item}>
+                                        <input
+                                            className={style.size_input}
+                                            type="text"
+                                            placeholder='Высота, мм'
+                                            value={toOrder.size[0]}
+                                            name='height'
+                                            onChange={handleChangeHeight}
+                                            pattern="^[ 0-9]+$"
+                                            required
+                                        />
+                                    </div>
+                                    x
+                                    <div className={style.size_inputs_item}>
+                                        <input
+                                            className={style.size_input}
+                                            type="text"
+                                            placeholder='Ширина, мм'
+                                            value={toOrder.size[1]}
+                                            name='width'
+                                            onChange={handleChangeWidth}
+                                            pattern="^[ 0-9]+$"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                ) : (
+                                    <div className={style.size_btns}>
+                                        {
+                                           size.map((el, i) => <button
+                                           className={toOrder.sizeR === el ? style.size_btn_active : style.size_btn}
+                                           onClick={() => setToOrder({ ...toOrder, sizeR: size[i] })}
+                                           key={i}
+                                       >
+                                           {size[i]}
+                                       </button>)  
+                                        }
+                                    </div>
+                                )  
+                        }   
+                        <div className={checkbox ? style.size_btn_active : style.size_btn}>
+                            Свой размер <input 
+                            type="checkbox" 
+                            name="ownSize" 
+                            id="0" 
+                            value={checkbox} 
+                            onChange={handlerCheckBox}
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className={style.modif}>
