@@ -157,17 +157,23 @@
 }
 
 .value_input {
+    box-sizing: border-box;
     font-family: inherit; 
     font-size: inherit; 
     line-height: inherit; 
     display: block;
     width: 50px;
     border-radius: 15px;
-    border: 2px solid rgba(245, 206, 180, 0.781);
+    border: none;
+    outline: 2px solid rgba(245, 206, 180, 0.781);
     padding: 1px 5px;
     margin: 0 auto 10px auto;
     text-align: center;
     box-shadow: 0 2px 9px #00000056;
+}
+
+.value_input:focus {
+    outline: 2px solid rgb(255, 102, 0); 
 }
 
 .add_btn {

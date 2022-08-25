@@ -4,10 +4,8 @@
 }
 
 .main_wrapper {
-    margin: 10px;
     width: 1140px;
     display: flex;
-    gap: 10px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -34,10 +32,6 @@
     box-shadow: 0 2px 9px #00000056;
 }
 
-@media (max-width: 479px) {
-    .main_basket {
-        margin-top: 0;
-    } 
-}
+
 
 

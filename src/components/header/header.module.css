@@ -16,7 +16,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;    
-    background: url('../../images/desks.jpg');
+    background: url('../../images/desks.jpg');    
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.555);
 }
 
@@ -35,29 +35,42 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
 }
 
 @media (min-width: 320px) {
     .header_wrapper {
-        width: 310px
+        width: 290px
     }
 }
 
 @media (min-width: 375px) {
     .header_wrapper {
-        width: 365px
+        width: 345px
     }
 }
 
 @media (min-width: 425px) {
     .header_wrapper {
-        width: 415px;
+        width: 395px;
     }
 }
 
 @media (min-width: 768px) {
     .header_wrapper {
-        width: 748px
+        width: 728px
+    }
+}
+
+@media (min-width: 1024px) {
+    .header_wrapper {
+        width: 984px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .header_wrapper {
+        width: 1120px
     }
 }
 
@@ -107,9 +120,37 @@ body {
     cursor: pointer;
 }
 
+.header_basket_img {
+    position: relative;
+}
+
+.header_basket_count {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: -25px;
+    top: 23%;
+    background: rgb(245, 206, 180);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    outline: 3px solid #000000;
+    font-size: larger;
+}
+
 @media (max-width: 425px) {
     .header_basket img {
         height: 35px;   
     }
+
+    .header_basket_count {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        outline-width: 2px;
+        right: -20px;
+    }
 }
+
+
 

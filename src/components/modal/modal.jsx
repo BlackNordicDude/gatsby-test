@@ -34,41 +34,50 @@ const Modal = () => {
                     Укажите свои данные и мы свяжемся с вами в близжайшее время для оформления заказа!
                 </h3>
                 <form className={style.modal_form} onSubmit={onSubmit}>
-                    <input 
-                    className={style.modal_input}
-                    type="text" 
-                    name='name' 
-                    value={values.name} 
-                    onChange={handleChange}
-                    placeholder='Ivan'
-                    />
-                    <input 
-                    className={style.modal_input}
-                    type="text" 
-                    name='secondName' 
-                    value={values.secondName} 
-                    onChange={handleChange}
-                    placeholder='Ivanov'
-                    />
-                    <input 
-                    className={style.modal_input}
-                    type="text" 
-                    name='number'
-                    value={values.number}
-                    onChange={handleChange}
-                    placeholder='+79991234567'
-                    />
-                    <input 
-                    className={style.modal_input}
-                    type="email" 
-                    name='email'
-                    value={values.email}
-                    onChange={handleChange}
-                    placeholder='example@mail.ru'
-                    />
+                        <span>Имя</span>
+                        <input 
+                            className={style.modal_input}
+                            type="text" 
+                            name='name' 
+                            value={values.name} 
+                            onChange={handleChange}
+                            placeholder='Ivan'
+                            required
+                        />
+                        <span>Фамилия</span>
+                        <input 
+                            className={style.modal_input}
+                            type="text" 
+                            name='secondName' 
+                            value={values.secondName} 
+                            onChange={handleChange}
+                            placeholder='Ivanov'
+                            required
+                        />
+                        <span>Телефон</span>
+                        <input 
+                            className={style.modal_input}
+                            type="text" 
+                            name='number'
+                            value={values.number}
+                            onChange={handleChange}
+                            placeholder='+79991234567'
+                            required
+                            pattern='^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$'
+                        />
+                        <span>E-mail</span>
+                        <input 
+                            className={style.modal_input}
+                            type="email" 
+                            name='email'
+                            value={values.email}
+                            onChange={handleChange}
+                            placeholder='example@mail.ru'
+                            required
+                        />
                     <div className={style.modal_btn_wrapper}>
                         <Boop y={-5}>                        
-                            <button className={style.modal_btn}>
+                            <button className={style.modal_btn} type='submit'>
                                 Оформить заказ
                             </button>
                         </Boop>

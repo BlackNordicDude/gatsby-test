@@ -15,7 +15,7 @@ const Cap = () => {
     const currentCard = data.filter(card => card.tab === currentTab)[0]
     const [toOrder, setToOrder] = React.useState({
         title: currentCard.title,
-        count: 0,
+        count: '',
         type: 'new',
         size: currentCard.size[0],
         grade: 'first',
@@ -44,13 +44,18 @@ const Cap = () => {
   `)
     const imgData = images.allFile.edges[0].node
     const img = getImage(imgData);
+
     const addProductToOrder = () => {
         const newItem = {...toOrder, id: uuidv4()}
         dispatch(addToOrder(newItem))
     }
+    const onSubmit = (e) => {
+        e.preventDefault()
+        addProductToOrder()
+    }
     return (
         <>
-            <div className={style.card_left}>
+            <form className={style.card_left} onSubmit={onSubmit}>
                 <div className={style.card_descr}>
                     <h3 className={style.card_title}>{title}</h3>
                     <p>Материал: {material}</p>
@@ -98,6 +103,9 @@ const Cap = () => {
                     value={toOrder.count} 
                     onChange={handleChange}
                     name='count'
+                    placeholder='0'
+                    pattern="^[ 0-9]+$"
+                    required
                     />
                 </div>
                 {
@@ -111,14 +119,14 @@ const Cap = () => {
                         <Boop scale={1.05}>
                             <button
                                 className={style.add_btn}
-                                onClick={() => addProductToOrder()}
+                                type='submit'
                             >
                                 В корзину
                             </button>
                         </Boop>
                     )
                 }
-            </div>
+            </form>
             <div className={style.card_right}>
                 <div className={style.card_img_wrapper}>
                     <GatsbyImage 

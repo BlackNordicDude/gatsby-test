@@ -6,6 +6,7 @@ import InfoBlock from '../info-block/info-block';
 import * as style from '../main/main.module.css'
 import Product from '../product/product';
 import { useDispatch, useSelector } from 'react-redux';
+import Presentation from '../presentation/presentation';
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -20,7 +21,8 @@ const Main = () => {
                 {
                     !isBasket ?
                         (
-                            <>
+                            <>  
+                                <Presentation/>
                                 <InfoBlock />
                                 <Product />
                                 <Boop y={-10}>

@@ -7,6 +7,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Boop from '../boop/boop';
 import { v4 as uuidv4 } from 'uuid';    
+import { useState } from 'react';
 
 const Pallet = () => {
     const dispatch = useDispatch();
@@ -19,21 +20,26 @@ const Pallet = () => {
     const cardsOfCurrentType = data.filter(card => (card.tab === currentTab) && (card.type === currentType)) 
     const [toOrder, setToOrder] = React.useState({
             title: cardsOfCurrentType[0].title,
-            count: 0,
+            count: '',
             type: 'new',
-            size: cardsOfCurrentType[0].size[0],
+            sizeR: cardsOfCurrentType[0].size[0],
+            size: '',
+            height: 0,
+            width: 0,
             grade: 'first',
             id: null
         })
-
+    const [checkbox, setCheckbox] = useState(false);
+    const handlerCheckBox = () => {
+        setCheckbox(!checkbox);
+    }
     const currentCard = toOrder.grade === 'first' ? cardsOfCurrentType[0] : cardsOfCurrentType[1];
 
     const {title, humidity, size, material, type} = currentCard;
 
     const handleChange = (e) => {
         const {value} = e.target;
-        setToOrder({...toOrder, count: value})
-        console.log(toOrder);
+        setToOrder({...toOrder, count: value});
     }
 
     const images = useStaticQuery(graphql`
@@ -52,27 +58,84 @@ const Pallet = () => {
   `)
     const imgData = images.allFile.edges.filter(edge => edge.node.name === `${type}_${toOrder.grade}`)[0].node
     const img = getImage(imgData);
-   
+    
+    const handleChangeHeight = (e) => {
+        const {value} = e.target;
+            setToOrder({...toOrder, height: value})
+    }
+    const handleChangeWidth = (e) => {
+        const {value} = e.target;
+            setToOrder({...toOrder, width: value})
+    }
+
     const addProductToOrder = () => {
-        const newItem = {...toOrder, id: uuidv4()}
+        let newItem = {...toOrder, id: uuidv4()}
+        newItem = checkbox ? {...newItem, size: `${toOrder.height}x${toOrder.width}`} : {...newItem, size: toOrder.sizeR}
         dispatch(addToOrder(newItem))
+    }
+    const onSubmit = (e) => {
+        e.preventDefault()
+        addProductToOrder()
     }
     return (
         <>
-            <div className={style.card_left}>
+            <form className={style.card_left} onSubmit={onSubmit}>
                 <div className={style.card_descr}>
                     <h3 className={style.card_title}>{title}</h3>
                     <p>Материал: {material}</p>
                     <p>Влажность: {humidity}</p>
                     <div className={style.size}>
-                        {size.map((el, i) =>
-                            <button
-                                className={toOrder.size === el ? style.size_btn_active : style.size_btn}
-                                onClick={() => setToOrder({ ...toOrder, size: size[i] })}
-                                key={i}
-                            >
-                                {size[i]}
-                            </button>)}
+                        {checkbox ? (
+                                <div className={style.size_inputs}>
+                                    <div className={style.size_inputs_item}>
+                                        <input
+                                            className={style.size_input}
+                                            type="text"
+                                            placeholder='Высота, мм'
+                                            value={toOrder.size[0]}
+                                            name='height'
+                                            onChange={handleChangeHeight}
+                                            pattern="^[ 0-9]+$"
+                                            required
+                                        />
+                                    </div>
+                                    x
+                                    <div className={style.size_inputs_item}>
+                                        <input
+                                            className={style.size_input}
+                                            type="text"
+                                            placeholder='Ширина, мм'
+                                            value={toOrder.size[1]}
+                                            name='width'
+                                            onChange={handleChangeWidth}
+                                            pattern="^[ 0-9]+$"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                ) : (
+                                    <div className={style.size_btns}>
+                                        {
+                                           size.map((el, i) => <button
+                                           className={toOrder.sizeR === el ? style.size_btn_active : style.size_btn}
+                                           onClick={() => setToOrder({ ...toOrder, sizeR: size[i] })}
+                                           key={i}
+                                       >
+                                           {size[i]}
+                                       </button>)  
+                                        }
+                                    </div>
+                                )  
+                        }   
+                        <div className={checkbox ? style.size_btn_active : style.size_btn}>
+                            Свой размер <input 
+                            type="checkbox" 
+                            name="ownSize" 
+                            id="0" 
+                            value={checkbox} 
+                            onChange={handlerCheckBox}
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className={style.modif}>
@@ -115,6 +178,9 @@ const Pallet = () => {
                     value={toOrder.count} 
                     onChange={handleChange}
                     name='count'
+                    placeholder='0'
+                    pattern="^[ 0-9]+$"
+                    required
                     />
                 </div>
                 {
@@ -128,14 +194,14 @@ const Pallet = () => {
                         <Boop scale={1.05}>
                             <button
                                 className={style.add_btn}
-                                onClick={() => addProductToOrder()}
+                                type='submit'
                             >
                                 В корзину
                             </button>
                         </Boop>
                     )
                 }
-            </div>
+            </form>
             <div className={style.card_right}>
                 <div className={style.card_types}>
                     <Boop scale={1.05}>

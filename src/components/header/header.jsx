@@ -3,7 +3,7 @@ import * as style from '../header/header.module.css';
 import logo from '../../images/icons/logo.svg';
 import basket from '../../images/icons/basket.svg';
 import { toggleBasket } from '../../store/reducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Boop from '../boop/boop';
 
 
@@ -15,6 +15,8 @@ let logoStyle ={
 const Header = () => {
 
     const dispatch = useDispatch();
+
+    const order = useSelector(state => state.product.order);
 
     const [headerParam, setHeaderParam] = React.useState({
         isMinV: false,
@@ -66,7 +68,10 @@ const Header = () => {
                     </div>
                     <div className={style.header_basket} >
                         <Boop scale={1.1}>
-                            <img src={basket} alt="basket" onClick={() => goToBasket()} />
+                            <div className={style.header_basket_img}>
+                                <img src={basket} alt="basket" onClick={() => goToBasket()} />
+                                <div className={style.header_basket_count}>{order.length}</div>
+                            </div>
                         </Boop>
                     </div>
                 </div>

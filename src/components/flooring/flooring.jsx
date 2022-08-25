@@ -14,7 +14,7 @@ const Flooring = () => {
     const currentCard = data.filter(card => card.tab === currentTab)[0]
     const [toOrder, setToOrder] = React.useState({
         title: currentCard.title,
-        count: 0,
+        count: '',
         type: 'new',
         size: '',
         height: 0,
@@ -60,10 +60,13 @@ const Flooring = () => {
         newItem = {...newItem, size: `${toOrder.height}x${toOrder.width}`}
         dispatch(addToOrder(newItem))
     }
-
+    const onSubmit = (e) => {
+        e.preventDefault()
+        addProductToOrder()
+    }
     return (
         <>
-            <div className={style.card_left}>
+            <form className={style.card_left} onSubmit={onSubmit}>
                 <div className={style.card_descr}>
                     <h3 className={style.card_title}>{title}</h3>
                     <p>Материал: {material}</p>
@@ -80,6 +83,8 @@ const Flooring = () => {
                                 value={toOrder.size[0]}
                                 name='height'
                                 onChange={handleChangeHeight}
+                                pattern="^[ 0-9]+$"
+                                required
                                 />
                             </div>
                             x
@@ -91,6 +96,8 @@ const Flooring = () => {
                                 value={toOrder.size[1]}
                                 name='width'
                                 onChange={handleChangeWidth}
+                                pattern="^[ 0-9]+$"
+                                required    
                                 />
                                 
                             </div>
@@ -123,6 +130,9 @@ const Flooring = () => {
                     value={toOrder.count} 
                     onChange={handleChangeCount}
                     name='count'
+                    placeholder='0'
+                    pattern="^[ 0-9]+$"
+                    required
                     />
                 </div>
                 {
@@ -136,14 +146,14 @@ const Flooring = () => {
                         <Boop scale={1.05}>
                             <button
                                 className={style.add_btn}
-                                onClick={addProductToOrder}
+                                type='submit'
                             >
                                 В корзину
                             </button>
                         </Boop>
                     )
                 }
-            </div>
+            </form>
             <div className={style.card_right}>
                 <div className={style.card_img_wrapper}>
                     <GatsbyImage 
