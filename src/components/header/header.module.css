@@ -29,6 +29,7 @@ body {
     position: fixed;
     top: 0;
     height: 70px;
+    z-index: 0;
 }
 
 .header_wrapper {
@@ -136,6 +137,7 @@ body {
     line-height: 25px;
     outline: 3px solid #000000;
     font-size: larger;
+    color: rgb(0, 0, 0)
 }
 
 @media (max-width: 425px) {
