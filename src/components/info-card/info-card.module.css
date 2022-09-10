@@ -46,6 +46,8 @@
 }
 
 .card_img_wrapper {
+    display: flex;
+    flex: 1;
     padding-left: 30px;
     display: flex;
     align-items: center;
@@ -58,7 +60,6 @@
 }
 
 .card_img_wrapper img {
-    width: 50%;
     box-shadow: 0 2px 5px #000000;
     border-radius: 15px;
 }
@@ -69,10 +70,16 @@
     justify-content: center;
     align-items: center;
     font-size: larger;
+    flex: 1;
 }
 
 @media (max-width: 750px) {
     .card_descr {
         padding: 10px;
+        margin: 0;
+    }
+    .card_descr p {
+        margin: 0;
+        font-size: large;
     }
 }
