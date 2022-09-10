@@ -19,9 +19,6 @@ const Footer = () => {
                     <img src={logo} alt="logo" />
                 </div>
             </div>
-            <div className={style.footer_develop}>
-                BlackNordicDude
-            </div>
         </footer>
     )
 }

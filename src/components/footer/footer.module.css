@@ -1,7 +1,8 @@
 .footer {
+    box-sizing: border-box;
     margin-top: 50px;
     width: 100%;
-    padding-top: 15px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     background: url('../../images/desks.jpg');

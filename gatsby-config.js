@@ -2,6 +2,9 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
+    title: 'Паллеты в Санкт-Петербурге',
+    description: 'Покупка паллетов и смежных изделий в Санкт-Петербурге',
+    image: '/favicon.png',
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
