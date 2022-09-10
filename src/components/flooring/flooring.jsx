@@ -44,7 +44,7 @@ const Flooring = () => {
         edges {
           node {
             childImageSharp {
-              gatsbyImageData(placeholder: BLURRED, height: 430, width: 550)
+              gatsbyImageData(placeholder: BLURRED, height: 430)
             }
             name
           }
@@ -75,7 +75,6 @@ const Flooring = () => {
                         <p>Размер:</p>
                         <div className={style.size_inputs}>
                             <div className={style.size_inputs_item}>
-                                
                                 <input 
                                 className={style.size_input} 
                                 type="text" 
@@ -99,12 +98,11 @@ const Flooring = () => {
                                 pattern="^[ 0-9]+$"
                                 required    
                                 />
-                                
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className={style.modif}>
+                {/* <div className={style.modif}>
                     <div className={style.modif_grade}>
                         <button
                             className={toOrder.grade === 'first' ? style.modif_btn_active : style.modif_btn}
@@ -121,7 +119,7 @@ const Flooring = () => {
                             Новый
                         </button>
                     </div>
-                </div>
+                </div> */}
                 <div className={style.value}>
                     <p>Количество:</p>
                     <input 

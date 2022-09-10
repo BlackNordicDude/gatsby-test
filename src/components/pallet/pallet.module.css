@@ -169,14 +169,14 @@
 .modif_grade {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
 }
 
 .modif_type {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
 }
 

@@ -135,14 +135,14 @@ const Cap = () => {
                     </div>
                 </div>
                 <div className={style.modif}>
-                    <div className={style.modif_grade}>
+                   {/*  <div className={style.modif_grade}>
                         <button
                             className={toOrder.grade === 'first' ? style.modif_btn_active : style.modif_btn}
                             onClick={() => setToOrder({ ...toOrder, grade: 'first' })}
                         >
                             1 сорт
                         </button>
-                    </div>
+                    </div> */}
                     <div className={style.modif_type}>
                         <button
                             className={toOrder.type === 'used' ? style.modif_btn_active : style.modif_btn}

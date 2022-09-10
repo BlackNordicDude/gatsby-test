@@ -29,7 +29,6 @@ body {
     position: fixed;
     top: 0;
     height: 70px;
-    z-index: 0;
 }
 
 .header_wrapper {

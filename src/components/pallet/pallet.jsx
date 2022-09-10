@@ -139,22 +139,21 @@ const Pallet = () => {
                     </div>
                 </div>
                 <div className={style.modif}>
-                    <div className={style.modif_grade}>
-                        <button
-                            className={toOrder.grade === 'first' ? style.modif_btn_active : style.modif_btn}
-                            onClick={() => setToOrder({ ...toOrder, grade: 'first' })}
-                        >
-                            1 сорт
-                        </button>
-                        {
-                            cardsOfCurrentType.length > 1 &&
+                    {cardsOfCurrentType.length > 1 &&
+                        <div className={style.modif_grade}>
+                            <button
+                                className={toOrder.grade === 'first' ? style.modif_btn_active : style.modif_btn}
+                                onClick={() => setToOrder({ ...toOrder, grade: 'first' })}
+                            >
+                                1 сорт
+                            </button>
                             <button
                                 className={toOrder.grade === 'second' ? style.modif_btn_active : style.modif_btn}
                                 onClick={() => setToOrder({ ...toOrder, grade: 'second' })}
                             >
                                 2 сорт
-                            </button>}
-                    </div>
+                            </button>
+                        </div>}
                     <div className={style.modif_type}>
                         <button
                             className={toOrder.type === 'used' ? style.modif_btn_active : style.modif_btn}

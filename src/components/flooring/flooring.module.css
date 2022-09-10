@@ -71,7 +71,7 @@
 }
 
 .size p {
-    margin: 0 auto 5px auto;
+    margin: 5px auto 10px auto;
 }
 
 .size_inputs {
@@ -207,6 +207,7 @@
     cursor: pointer;
     transition: all 0.3s;
     font-size: large;
+    box-shadow: 0 2px 9px #00000056;
 }
 
 .add_btn_inactive {
