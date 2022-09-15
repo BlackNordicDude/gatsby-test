@@ -2,10 +2,8 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Паллеты в Санкт-Петербурге',
+    title: 'Поддоны в Санкт-Петербурге',
     description: 'Покупка паллетов и смежных изделий в Санкт-Петербурге',
-    image: '/favicon.png',
-    siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -23,6 +21,25 @@ module.exports = {
       options: {
         name: `cards`,
         path: path.join(__dirname, `src`, `store`),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `ВВЭС`,
+        short_name: `ВВЭС`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#a2466c`,
+        display: `standalone`,
+        icon: 'src/images/icons/logo.svg'
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `jkfscoa6rpxx`,
+        accessToken: 'u5IXcK9jcyFFDrfSqW4VDNM7iVZeyXW2I9DVw2sLP64',
       },
     },
   ],

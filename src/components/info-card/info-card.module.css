@@ -38,6 +38,7 @@
         width: 95%;
         height: 500px;
         display: flex;
+        align-items: center;
         flex-direction: row;
         background: #ffffff;
         border-radius: 30px;
@@ -46,11 +47,15 @@
 }
 
 .card_img_wrapper {
+
     display: flex;
     flex: 1;
-    padding-left: 30px;
+    margin-left: 30px;
     display: flex;
     align-items: center;
+    box-shadow: 0 2px 5px #000000;
+    border-radius: 15px;
+
 }
 
 @media (max-width: 750px) {
@@ -60,7 +65,7 @@
 }
 
 .card_img_wrapper img {
-    box-shadow: 0 2px 5px #000000;
+    width: 100%;
     border-radius: 15px;
 }
 
