@@ -7,6 +7,7 @@
         border-radius: 30px;
         box-shadow: 0 2px 9px #00000056;
         margin: 10px auto;
+        padding-top: 5px;
     }
 }
 @media (min-width: 375px) {
@@ -20,15 +21,18 @@
     .card {
         width: 405px;
         height: 400px;
+        padding-top: 10px;
     }
 }
 
 @media (min-width: 750px) {
     .card {
-        width: 700px;
+        width: 95%;
         height: 400px;
         display: flex;
         flex-direction: row;
+        align-items: center;
+
     }
 }
 
@@ -47,26 +51,26 @@
 }
 
 .card_img_wrapper {
-
     display: flex;
     flex: 1;
     margin-left: 30px;
     display: flex;
     align-items: center;
     box-shadow: 0 2px 5px #000000;
-    border-radius: 15px;
+    border-radius: 30px;
 
 }
 
 @media (max-width: 750px) {
     .card_img_wrapper {
-        padding: 10px;
+        margin: 0 auto;
+        width: 95%;
     }
 }
 
 .card_img_wrapper img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 30px;
 }
 
 .card_descr {
