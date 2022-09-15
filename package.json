@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@formspree/react": "^2.4.0",
     "@reduxjs/toolkit": "^1.8.3",
     "gatsby": "^4.23.0",
     "gatsby-plugin-favicons": "^2.0.0",
