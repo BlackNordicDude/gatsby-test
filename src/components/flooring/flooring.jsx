@@ -19,6 +19,7 @@ const Flooring = () => {
         size: '',
         height: 0,
         width: 0,
+        thickness: 0,
         grade: 'first',
         id: null
     })
@@ -36,6 +37,10 @@ const Flooring = () => {
     const handleChangeWidth = (e) => {
         const {value} = e.target;
             setToOrder({...toOrder, width: value})
+    }
+    const handleChangeThickness = (e) => {
+        const {value} = e.target;
+            setToOrder({...toOrder, thickness: value})
     }
 
     const images = useStaticQuery(graphql`
@@ -57,7 +62,7 @@ const Flooring = () => {
 
     const addProductToOrder = () => {
         let newItem = {...toOrder, id: uuidv4(),}
-        newItem = {...newItem, size: `${toOrder.height}x${toOrder.width}`}
+        newItem = {...newItem, size: `${toOrder.height}x${toOrder.width}x${toOrder.thickness}`}
         dispatch(addToOrder(newItem))
     }
     const onSubmit = (e) => {
@@ -85,9 +90,9 @@ const Flooring = () => {
                                 pattern="^[ 0-9]+$"
                                 required
                                 />
-                            </div>
+                            
                             x
-                            <div className={style.size_inputs_item}>
+                            
                                 <input 
                                 className={style.size_input} 
                                 type="text" 
@@ -98,7 +103,18 @@ const Flooring = () => {
                                 pattern="^[ 0-9]+$"
                                 required    
                                 />
+
                             </div>
+                            <input 
+                                className={style.size_input} 
+                                type="text" 
+                                placeholder='Толщина, мм'
+                                value={toOrder.size[2]}
+                                name='thickness'
+                                onChange={handleChangeThickness}
+                                pattern="^[ 0-9]+$"
+                                required    
+                                />
                         </div>
                     </div>
                 </div>
