@@ -5,7 +5,8 @@ const initialState = {
     currentType: 'typical',
     order: [],
     isBasket: false,
-    isModalOpen: false
+    isModalOpen: false,
+    isInfoOpen: false
 }
 
 export const changeType = createAction('CHANGE_TYPE')
@@ -15,6 +16,7 @@ export const toggleBasket = createAction('TOGGLE_BASKET')
 export const removeItem = createAction('REMOVE_ITEM')
 export const toggleModal = createAction('TOGGLE_MODAL')
 export const resetBasket = createAction('RESET_BASKET')
+export const toggleInfo = createAction('TOGGLE_INFO')
 
 export default createReducer(initialState, {
     [changeType]: function(state, payload) {
@@ -37,6 +39,9 @@ export default createReducer(initialState, {
     },
     [resetBasket]: function(state) {
         state.order = []
+    },
+    [toggleInfo]: function(state) {
+        state.isInfoOpen = !state.isInfoOpen
     }
 
 })

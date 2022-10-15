@@ -1,8 +1,14 @@
 import * as React from 'react';
 import * as style from '../footer/footer.module.css';
 import logo from '../../images/icons/logo.svg';
+import { useDispatch } from 'react-redux';
+import { toggleInfo } from '../../store/reducer';
 
 const Footer = () => {
+    const dispatch = useDispatch()
+    const openInfoModal = () => {
+        dispatch(toggleInfo())
+    } 
     return (
         <footer className={style.footer}> 
             <div className={style.footer_wrapper}>
@@ -13,6 +19,9 @@ const Footer = () => {
                     </div>
                     <div className={style.footer_info_call}>
                         <a href="mailto:vves2018@mail.ru">vves2018@mail.ru</a>
+                    </div>
+                    <div className={style.footer_info_call}>
+                        <a href='#' onClick={openInfoModal}>Инфо</a>
                     </div>
                 </div>
                 <div className={style.footer_logo}>

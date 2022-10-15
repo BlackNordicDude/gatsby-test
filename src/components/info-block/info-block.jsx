@@ -38,6 +38,7 @@ const InfoBlock = () => {
         showStatus={false}
         showThumbs={false}
         showArrows={false}
+        showIndicators={false}
       >
         <InfoCard img={slides.image1}>
           <p>{slides.text1}
