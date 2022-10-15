@@ -27,7 +27,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 875px) {
     .info {
         width: 80%;
         position: absolute;
