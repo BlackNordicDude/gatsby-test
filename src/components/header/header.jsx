@@ -70,7 +70,7 @@ const Header = () => {
                         <Boop scale={1.1}>
                             <div className={style.header_basket_img}>
                                 <img src={basket} alt="basket" onClick={() => goToBasket()} />
-                                <div className={style.header_basket_count}>{order.length}</div>
+                                {order.length > 0 && <div className={style.header_basket_count}>{order.length}</div>}
                             </div>
                         </Boop>
                     </div>
