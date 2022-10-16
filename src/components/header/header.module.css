@@ -16,8 +16,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;    
-/*     background: url('../../images/desks.webp');     */
-    background: rgb(255, 152, 17);
+    background: url('../../images/desk1.webp');     
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.555);
 }
 

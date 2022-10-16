@@ -5,8 +5,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-/*     background: url('../../images/desks.webp');
- */    background: rgb(255, 152, 17);
+    background: url('../../images/desk1.webp');
     box-shadow: 0 -2px 9px #00000080;
 }
 
