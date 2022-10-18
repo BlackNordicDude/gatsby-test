@@ -42,5 +42,16 @@ module.exports = {
         accessToken: 'u5IXcK9jcyFFDrfSqW4VDNM7iVZeyXW2I9DVw2sLP64',
       },
     },
+    {
+      resolve: `gatsby-plugin-yandex-metrika`,
+      options: {
+        trackingId: 90794811,
+        webvisor: true,
+        trackHash: true,
+        afterBody: true,
+        defer: false,
+        useCDN: true,
+      },
+    },
   ],
 }
